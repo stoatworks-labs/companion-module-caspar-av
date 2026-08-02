@@ -1,0 +1,23 @@
+{
+  "$schema": "../node_modules/@companion-module/base/assets/manifest.schema.json",
+  "type": "connection",
+  "id": "caspar-av",
+  "name": "caspar-av",
+  "shortname": "caspar-AV",
+  "description": "Drive a caspar-AV show — fire cues and pads, run transport on any screen, adjust mixer properties, invoke templates, and send raw AMCP, with CasparCG health, telemetry and per-screen playing state.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": "git+https://github.com/stoatworks-labs/companion-module-caspar-av.git",
+  "bugs": "https://github.com/stoatworks-labs/companion-module-caspar-av/issues",
+  "maintainers": [{ "name": "Allan Sargeant", "email": "" }],
+  "runtime": {
+    "type": "node22",
+    "api": "nodejs-ipc",
+    "apiVersion": "0.0.0",
+    "entrypoint": "../src/main.js"
+  },
+  "legacyIds": [],
+  "manufacturer": "Stoatworks Labs",
+  "products": ["caspar-AV"],
+  "keywords": ["casparcg", "media-server", "amcp", "playback", "video"]
+}
