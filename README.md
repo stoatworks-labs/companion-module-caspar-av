@@ -9,6 +9,21 @@ A [Bitfocus Companion](https://bitfocus.io/companion) connection module for
 [caspar-AV](https://github.com/stoatworks-labs/caspar-av) — fire cues and pads,
 run transport on any screen, and see what CasparCG is actually doing.
 
+<!-- downloads:start -->
+
+## Download
+
+**[v1.0.0](https://github.com/stoatworks-labs/companion-module-caspar-av/releases/tag/v1.0.0)**
+
+This release contains:
+
+- [`caspar-av-1.0.0.tgz`](https://github.com/stoatworks-labs/companion-module-caspar-av/releases/download/v1.0.0/caspar-av-1.0.0.tgz) — npm package, 25 KB
+- [`companion-module-caspar-av-pkg.tgz`](https://github.com/stoatworks-labs/companion-module-caspar-av/releases/latest/download/companion-module-caspar-av-pkg.tgz) — npm package, 25 KB
+
+All builds, checksums and release notes: [github.com/stoatworks-labs/companion-module-caspar-av/releases](https://github.com/stoatworks-labs/companion-module-caspar-av/releases).
+
+<!-- downloads:end -->
+
 ## What it does
 
 - **Actions** — fire a cue, fire a pad by grid position, screen transport
