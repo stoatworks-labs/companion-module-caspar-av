@@ -13,11 +13,11 @@ run transport on any screen, and see what CasparCG is actually doing.
 
 ## Download
 
-**[v1.0.1](https://github.com/stoatworks-labs/companion-module-caspar-av/releases/tag/v1.0.1)**
+**[v1.0.2](https://github.com/stoatworks-labs/companion-module-caspar-av/releases/tag/v1.0.2)**
 
 This release contains:
 
-- [`caspar-av-1.0.1.tgz`](https://github.com/stoatworks-labs/companion-module-caspar-av/releases/download/v1.0.1/caspar-av-1.0.1.tgz) — npm package, 25 KB
+- [`caspar-av-1.0.2.tgz`](https://github.com/stoatworks-labs/companion-module-caspar-av/releases/download/v1.0.2/caspar-av-1.0.2.tgz) — npm package, 25 KB
 - [`companion-module-caspar-av-pkg.tgz`](https://github.com/stoatworks-labs/companion-module-caspar-av/releases/latest/download/companion-module-caspar-av-pkg.tgz) — npm package, 25 KB
 
 All builds, checksums and release notes: [github.com/stoatworks-labs/companion-module-caspar-av/releases](https://github.com/stoatworks-labs/companion-module-caspar-av/releases).
