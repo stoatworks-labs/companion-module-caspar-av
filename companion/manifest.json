@@ -5,7 +5,7 @@
   "name": "caspar-av",
   "shortname": "caspar-AV",
   "description": "Drive a caspar-AV show — fire cues and pads, run transport on any screen, adjust mixer properties, invoke templates, and send raw AMCP, with CasparCG health, telemetry and per-screen playing state.",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "license": "MIT",
   "repository": "git+https://github.com/stoatworks-labs/companion-module-caspar-av.git",
   "bugs": "https://github.com/stoatworks-labs/companion-module-caspar-av/issues",

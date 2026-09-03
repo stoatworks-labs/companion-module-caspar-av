@@ -102,10 +102,8 @@ export default function UpdateFeedbacks(self) {
           useVariables: true,
         },
       ],
-      callback: async (f, context) => {
-        const wanted = (
-          await context.parseVariablesInString(String(f.options.file ?? ""))
-        ).trim();
+      callback: (f) => {
+        const wanted = String(f.options.file ?? "").trim();
         if (!wanted) return false;
         const name = self.layerState(String(f.options.screen ?? ""))?.foreground
           ?.file?.name;

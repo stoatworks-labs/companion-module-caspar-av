@@ -50,10 +50,11 @@ export default function UpdateActions(self) {
     allowCustom: true,
   };
 
-  const text = async (event, key) =>
-    (
-      await self.parseVariablesInString(String(event.options[key] ?? ""))
-    ).trim();
+  // Options declared `useVariables: true` arrive already expanded: Companion
+  // resolves them before invoking the callback. `parseVariablesInString` does
+  // not exist in base 2.x — on the context or on InstanceBase — and calling it
+  // throws when the action fires, while the module still loads cleanly.
+  const text = (event, key) => String(event.options[key] ?? "").trim();
 
   const run = async (fn) => {
     try {
@@ -65,7 +66,7 @@ export default function UpdateActions(self) {
 
   const transport = (action, extra) => async (event) =>
     run(async () => {
-      const screen = await text(event, "screen");
+      const screen = text(event, "screen");
       if (!screen) return;
       await post(self, `/api/screens/${encodeURIComponent(screen)}/transport`, {
         action,
@@ -91,7 +92,7 @@ export default function UpdateActions(self) {
       ],
       callback: async (event) =>
         run(async () => {
-          const cue = await text(event, "cue");
+          const cue = text(event, "cue");
           if (!cue) return;
           await post(self, `/api/cues/${encodeURIComponent(cue)}/fire`);
         }),
@@ -147,7 +148,7 @@ export default function UpdateActions(self) {
         },
       ],
       callback: transport("play", async (event) => ({
-        clip: await text(event, "clip"),
+        clip: text(event, "clip"),
         looping: !!event.options.looping,
         frames: Number(event.options.frames) || 0,
       })),
@@ -177,7 +178,7 @@ export default function UpdateActions(self) {
         },
       ],
       callback: transport("load", async (event) => ({
-        clip: await text(event, "clip"),
+        clip: text(event, "clip"),
         looping: !!event.options.looping,
         frames: Number(event.options.frames) || 0,
       })),
@@ -263,13 +264,13 @@ export default function UpdateActions(self) {
       ],
       callback: async (event) =>
         run(async () => {
-          const screen = await text(event, "screen");
+          const screen = text(event, "screen");
           if (!screen) return;
-          const values = (await text(event, "values"))
+          const values = text(event, "values")
             .split(",")
             .map((v) => Number(v.trim()))
             .filter((v) => Number.isFinite(v));
-          const tween = await text(event, "tween");
+          const tween = text(event, "tween");
           await post(self, `/api/screens/${encodeURIComponent(screen)}/mixer`, {
             property: event.options.property,
             values,
@@ -299,7 +300,7 @@ export default function UpdateActions(self) {
       ],
       callback: async (event) =>
         run(async () => {
-          const id = await text(event, "screen");
+          const id = text(event, "screen");
           if (!id) return;
           const enabled =
             event.options.mode === "toggle"
@@ -362,11 +363,11 @@ export default function UpdateActions(self) {
       ],
       callback: async (event) =>
         run(async () => {
-          const screen = await text(event, "screen");
-          const template = await text(event, "template");
+          const screen = text(event, "screen");
+          const template = text(event, "template");
           if (!screen || !template) return;
-          const data = await text(event, "data");
-          const method = await text(event, "method");
+          const data = text(event, "data");
+          const method = text(event, "method");
           await post(
             self,
             `/api/screens/${encodeURIComponent(screen)}/template`,
@@ -398,7 +399,7 @@ export default function UpdateActions(self) {
       ],
       callback: async (event) =>
         run(async () => {
-          const command = await text(event, "command");
+          const command = text(event, "command");
           if (!command) return;
           const body = await rawCommand(self, command);
           self.log("debug", `AMCP ${body.code} ${body.status ?? ""}`);
@@ -421,7 +422,7 @@ export default function UpdateActions(self) {
       ],
       callback: async (event) =>
         run(async () => {
-          const raw = await text(event, "commands");
+          const raw = text(event, "commands");
           const commands = raw
             .split("\n")
             .map((c) => c.trim())
@@ -480,7 +481,7 @@ export default function UpdateActions(self) {
       callback: async (event) =>
         run(async () => {
           const index = Number(event.options.index);
-          const cue = await text(event, "cue");
+          const cue = text(event, "cue");
           const pads = self.pads().filter((p) => Number(p.index) !== index);
           pads.push({ index, cue });
           pads.sort((a, b) => a.index - b.index);
