@@ -120,7 +120,10 @@ that missing telemetry isn't mistaken for nothing playing, that `file/time` is r
 
 ## Installing
 
-It's not in the official Companion module store, so install it as a developer
+It's not in the official Companion module store. The quick way is to download
+`companion-module-caspar-av-pkg.tgz` from the
+[releases page](https://github.com/stoatworks-labs/companion-module-caspar-av/releases) and
+import it with Companion's **Modules → Import module package**. Or install it as a developer
 module through **Settings → Developer modules path**.
 
 <!-- attributions:start -->
