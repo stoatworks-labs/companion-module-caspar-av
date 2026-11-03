@@ -8,6 +8,8 @@ A [Bitfocus Companion](https://bitfocus.io/companion) module for
 [caspar-AV](https://github.com/stoatworks-labs/caspar-av). It fires cues and pads,
 runs transport on any screen, and shows you what CasparCG is actually up to.
 
+The [project page](https://stoatworks-labs.com/software/companion-caspar-av/) has the downloads and the [user guide](https://stoatworks-labs.com/software/companion-caspar-av/guide/).
+
 <!-- downloads:start -->
 
 ## Download
